@@ -142,6 +142,7 @@ Get-Content "logs/order.log" | sls "status=404" | measure-object
 ### Lệnh chạy (Windows: nếu dùng Phụ lục 2 thì ghi cả 2 lệnh)
 
 ```shell
+ Set -ExcutionPolicy -Scope Process -xecutionPolicy Bypass .\tong_hop.ps1
 
 
 ```
@@ -149,23 +150,16 @@ Get-Content "logs/order.log" | sls "status=404" | measure-object
 ### Nội dung file logs/tong_hop.txt
 
 ```text
-# Script: tong_hop.ps1
-# Tac gia: Nguyễn Hồng Vũ 
-# Ngay tao: 11/11/2026
-Write-Host "Dang tao bao cao..."
-"=== BAO CAO SU CO WEBSITE ===" > logs/tong_hop.ps1
-Get-Content logs/order.log | Select-String "status=404" >> logs/tong_hop.ps1
-Get-Content logs/order.log | Select-String "status=500" | Measure-Object >> logs/tong_hop.ps1
-Write-Host "Hoan thanh!" 
-
+Dang tao bao cao..
+Hoan thanh! 
 ```
 
 ## 4.5. README.md và bảo vệ thông tin bí mật
 
 > README.md, .gitignore và .env.example được chấm trực tiếp trên file ở gốc dự án. Đánh dấu `[x]` vào các mục đã làm để tự kiểm tra.
 
-- [ ] README.md: Heading 1, mô tả có **in đậm** và *in nghiêng*, bảng, code block, task list, blockquote
-- [ ] .gitignore có dòng `.env` (tên file đúng, không có đuôi .txt)
+- [x] README.md: Heading 1, mô tả có **in đậm** và *in nghiêng*, bảng, code block, task list, blockquote
+- [x] .gitignore có dòng `.env` (tên file đúng, không có đuôi .txt)
 - [ ] .env.example có đủ tên biến, giá trị để trống (tên file đúng, không có đuôi .txt)
 
 ## 4.6. Kiểm tra trang web bằng DevTools (F12) và báo cáo lỗi
@@ -174,8 +168,8 @@ Write-Host "Hoan thanh!"
 
 | STT | Tab DevTools phát hiện lỗi | Tên file hoặc thông báo lỗi | Cách khắc phục |
 | --- | --- | --- | --- |
-| 1 |  |  |  |
-| 2 |  |  |  |
+| 1 |lỗi không logo   |  | F12  |
+| 2 | lỗi không hiện bảng   |  |  |
 
 > Ảnh chụp màn hình lưu trong thư mục `evidence/` (network.png, console.png).
 
